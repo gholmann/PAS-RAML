@@ -1,0 +1,516 @@
+#%RAML 1.0
+title: Raml API generated from root
+version: 1.0
+baseUri: http://www.baseuri.com
+mediaType: "*/*"
+/qoppapdf/v1/documents/{filePath:.*}.pdf/permissions/password-permissions:
+    get:
+        description: Get the document's Password Permissions.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    put:
+        description: Set Password Permissions on the document.  One or both of permissions password or open password must be set in the Password Permissions.
+        body:         
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    delete:
+        description: Clear the document's Password Permissions.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+/qoppapdf/v1/documents/{filePath:.*}.pdf/fields/signature-fields:
+    get:
+        description: Get all SignatureFields in the Document.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    delete:
+        description: Clear all signature fields in the document.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    /{fieldName}/signature:
+        post:
+            description: Sign the signature field.
+            body:
+                multipart/form-data:
+                    type:
+                        properties:
+                            file:
+                                type: file
+                            digitalID:
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+    /{fieldName}:
+        get:
+            description: Get one SignatureField in the Document.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+        put:
+            description: Create a new signature field in the document.
+            body:
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+        delete:
+            description: Clear one signature field in the document.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+/qoppapdf/v1/documents/{filePath:.*}.pdf/permissions:
+    get:
+        description: Get all PDF permissions in the document including Password Permissions, Usage Rights, and DocMDP Permissions.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    /usage-rights:
+        delete:
+            description: Remove Usage Rights permissions.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+/qoppapdf/v1/documents/{filePath:.*}.pdf/annotations:
+    get:
+        description: Get all Annotations in the Document or filter by the page index.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        queryParameters:
+            pageIndex:
+                type: integer
+    post:
+        description: Import annotations from an xfdf or fdf file.
+        body:
+            type: file
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        headers:
+            content-type:
+                type: string
+                default: application/vnd.adobe.xfdf
+                required: false
+    /annotations:
+        delete:
+            description: Delete all annotations in the document or filter by page index.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+            queryParameters:
+                pageIndex:
+                    type: integer
+    /content:
+        get:
+            description: Export annotations to an XFDF (default) or FDF file. By default the annotations will be returned in the body of the response but can also be downloaded as an attachment.
+            responses:
+                200:
+                    body:
+                        application/vnd.fdf:
+                        application/vnd.adobe.xfdf:
+            headers:
+                accept:
+                    type: string
+                    default: application/vnd.adobe.xfdf
+                    required: false
+            queryParameters:
+                attachment:
+                    type: boolean
+                    default: false
+                    required: false
+/qoppapdf/v1/documents/{filePath:.*}.pdf/fields:
+    get:
+        description: Get a list of Fields in the Document.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    delete:
+        description: Reset all form fields.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    post:
+        description: Import field values from an xfdf or fdf file.
+        body:
+            type: file
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        headers:
+            content-type:
+                type: string
+                default: application/vnd.adobe.xfdf
+                required: false
+    /content:
+        get:
+            description: Export Fields to XFDF (defalt) or FDF. By default the fields will be returned in the body of the response but can also be downloaded as an attachment.
+            responses:
+                200:
+                    body:
+                        application/vnd.fdf:
+                        application/vnd.adobe.xfdf:
+            headers:
+                accept:
+                    type: string
+                    default: application/vnd.adobe.xfdf
+                    required: false
+            queryParameters:
+                exportEmptyFields:
+                    type: boolean
+                    default: false
+                    required: false
+                attachment:
+                    type: boolean
+                    default: false
+                    required: false
+/qoppapdf/v1/documents/{filePath:.*}.pdf/pages:
+    get:
+        description: Get all Pages in the Document.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    post:
+        description: Perform an action on the document's pages. This method can be used to create a new page, apply a text or image stamp, append pages from an attached document or an already uploaded document, or perform OCR. The specific type of action must be provided in the request and some actions (image stamps and appending attached documents) also require a file attachment.
+        body:
+            multipart/form-data:
+                type:
+                    properties:
+                        pageAction:
+                        file:
+                            type: file
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    /{pageIndex}/content:
+        get:
+            description: Download the page as HTML(default), SVG, PDF, JPEG, GIF, TIFF, or PNG image. By default the page will be returned in the body of the response but can also be downloaded as an attachment.
+            responses:
+                200:
+                    body:
+                        image/gif:
+                        image/jpeg:
+                        image/png:
+                        image/tiff:
+                        image/svg+xml:
+                        application/pdf:
+                        text/html:
+            headers:
+                accept:
+                    type: string
+            queryParameters:
+                dpi:
+                    type: integer
+                    default: 72
+                    required: false
+                quality:
+                    type: number
+                    default: .8
+                    required: false
+                attachment:
+                    type: boolean
+                    default: false
+                    required: false
+    /{pageIndex}/text:
+        get:
+            description: Get the text of a single page in the document as a String.
+            responses:
+                200:
+                    body:
+                        text/plain:
+    /text:
+        get:
+            description: Get the text in the PDF document as a String.
+            responses:
+                200:
+                    body:
+                        text/plain:
+    /{pageIndex}:
+        get:
+            description: Get one Page in the Document.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+        delete:
+            description: Delete the page at the specified index from the document.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+/qoppapdf/v1/optimize-profiles:
+    get:
+        description: Get a List of Optimize Profiles.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    /{profileName}:
+        put:
+            description: Add an optimize profile.
+            body:
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+        delete:
+            description: Delete an OptimizeProfile.
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+        get:
+            description: Get an OptimizeProfile by name.          
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+/pdfmarkup/v1/documents/{filePath:.*}.pdf:
+    get:
+        description: Get the document as JSON or XML.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    /pages/{pageIndex}/prepareForPrint:
+        post:
+            description: Prepare the document for printing.  Creates a temporary document that contains the annotations imported from the xfdf.
+            body:
+                type: file
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+    /annotations/content:
+        get:
+            description: Export annotations to an XFDF file. The XFDF will be returned in the body of the response.
+            responses:
+                200:
+                    body:
+                        application/vnd.adobe.xfdf:
+    /annotations/delete:
+        post:
+            description: Delete annotations contained in an xfdf file.
+            body:
+                type: file
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+    /prepareForPrint:
+        post:
+            description: Prepare the page for printing.  Creates a temporary document that contains the annotations imported from the xfdf.
+            body:
+                type: file
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+    /pages/{pageIndex}/content:
+        get:
+            description: Get the page as SVG. Annotations will be displayed when print is set to false.
+            responses:
+                200:
+                    body:
+                        image/svg+xml:
+            queryParameters:
+                print:
+                    type: boolean
+                    default: false
+                    required: false
+    /annotations:
+        post:
+            description: Import annotations from an xfdf or fdf file.
+            body:
+                type: file
+            responses:
+                200:
+                    body:
+                        application/json:
+                        application/xml:
+    /content:
+        get:
+            description: Download the PDF document as PDF. By default the document will be returned in the body of the response but can also be downloaded as an attachment.
+            responses:
+                200:
+                    body:
+                        application/pdf:
+                        image/svg+xml:
+            headers:
+                accept:
+                    type: string
+            queryParameters:
+                attachment:
+                    type: boolean
+                    default: false
+                    required: false
+/qoppapdf/v1/documents/{filePath:.*}.pdf:
+    get:
+        description: Get the Document.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    put:
+        description: Upload a file to create a new Document from a PDF, Word document, or image that will have the specified file name.  If a pdf already exists at that location it will be overwritten. Parent directories will be created if they don't already exist.
+        body:
+            type: file
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        headers:
+            Content-Type:
+                type: string
+                default: application/pdf
+                required: false
+        queryParameters:
+            dpi:
+                type: integer
+                default: 72
+                required: false
+    delete:
+        description: Delete the Document.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    post:
+        description: Perform an action on an existing document and save the resulting document to the path specified in the DocumentAction.This method can be used to copy, linearize, optimize, flatten annotations, or flatten form fields. Optimize and flatten actions can be further customized by posting an OptimizeAction, FlattenAnnotationsAction, or FlattenFieldsAction.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    /content:
+        get:
+            description: Download the PDF document as PDF (default), SVG, HTML(SVG wrapped in HTML), or TIFF file. By default the document will be returned in the body of the response but can also be downloaded as an attachment.
+            responses:
+                200:
+                    body:
+                        application/pdf:
+                        text/html:
+                        image/tiff:
+                        image/svg+xml:
+            headers:
+                accept:
+                    type: string
+                    default: application/pdf
+                    required: false
+            queryParameters:
+                dpi:
+                    type: integer
+                    default: 72
+                    required: false
+                attachment:
+                    type: boolean
+                    default: false
+                    required: false
+/qoppapdf/v1/documents/{folderPath:.*}:
+    get:
+        description: Get the Directory.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        queryParameters:
+            details:
+                type: boolean
+                default: false
+                required: false
+    put:
+        description: Create a new folder at the given path.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+    delete:
+        description: Delete the folder.  It must be empty to be deleted successfully.  Set "recursive" to true to delete any subfolders and documents within the directory.
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        queryParameters:
+            recursive:
+                type: boolean
+                default: false
+                required: false
+    post:
+        description: Upload a file to create a new Document from a PDF, Word document, or image that will have the specified file name.  Parent directories will be created if they don't already exist.
+        body:
+            multipart/form-data:
+                type:
+                    properties:
+                        file:
+                            type: file
+        responses:
+            200:
+                body:
+                    application/json:
+                    application/xml:
+        queryParameters:
+            namingMode:
+                type: integer
+                default: 2
+                required: false
+            dpi:
+                type: integer
+                default: 72
+                required: false
+types:

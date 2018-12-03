@@ -1,2035 +1,1225 @@
 #%RAML 1.0
-title: 
-    value: Raml API generated from pas
-baseUri: 
-    value: "http://www.baseuri.com"
-mediaType: "*/*"
-version: 
-    value: 1.0
-types: 
-    WidgetModel: 
-        type: object
-        properties: 
-            rectangle: 
-                type: RectangleModel
-                displayName: 
-                    value: rectangle
-            pageIndex: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: pageIndex
-        displayName: 
-            value: WidgetModel
-    ImageHandlerModel: 
-        type: object
-        properties: 
-            compression: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: compression
-            colorSpace: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: colorSpace
-            dpi: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: dpi
-            jpegQuality: 
-                format: float
-                type: number
-                displayName: 
-                    value: jpegQuality
-        displayName: 
-            value: ImageHandlerModel
-    RectangleModel: 
-        type: object
-        properties: 
-            x: 
-                format: double
-                type: number
-                displayName: 
-                    value: x
-            y: 
-                format: double
-                type: number
-                displayName: 
-                    value: y
-            width: 
-                format: double
-                type: number
-                displayName: 
-                    value: width
-            height: 
-                format: double
-                type: number
-                displayName: 
-                    value: height
-        displayName: 
-            value: RectangleModel
-    StreamingOutput: 
-        type: object
-        displayName: 
-            value: StreamingOutput
-    LinkModel: 
-        type: object
-        properties: 
-            REF_FILE: 
-                type: string
-                displayName: 
-                    value: REF_FILE
-            REF_FOLDER: 
-                type: string
-                displayName: 
-                    value: REF_FOLDER
-            REF_ANNOTATIONS: 
-                type: string
-                displayName: 
-                    value: REF_ANNOTATIONS
-            REF_FIELDS: 
-                type: string
-                displayName: 
-                    value: REF_FIELDS
-            REF_PAGES: 
-                type: string
-                displayName: 
-                    value: REF_PAGES
-            REF_PAGE: 
-                type: string
-                displayName: 
-                    value: REF_PAGE
-            REF_PASSWORD_PERMISSIONS: 
-                type: string
-                displayName: 
-                    value: REF_PASSWORD_PERMISSIONS
-            REF_ALL_PERMISSIONS: 
-                type: string
-                displayName: 
-                    value: REF_ALL_PERMISSIONS
-            REF_SIGNATURE_FIELDS: 
-                type: string
-                displayName: 
-                    value: REF_SIGNATURE_FIELDS
-            REF_CONTENT: 
-                type: string
-                displayName: 
-                    value: REF_CONTENT
-            REF_TEXT: 
-                type: string
-                displayName: 
-                    value: REF_TEXT
-            rel: 
-                type: string
-                displayName: 
-                    value: rel
-            href: 
-                type: string
-                displayName: 
-                    value: href
-        displayName: 
-            value: LinkModel
-    DocumentModel: 
-        type: FileModel
-        properties: 
-            author: 
-                type: string
-                displayName: 
-                    value: author
-            creationDate: 
-                type: "date-only"
-                displayName: 
-                    value: creationDate
-            creator: 
-                type: string
-                displayName: 
-                    value: creator
-            keywords: 
-                type: string
-                displayName: 
-                    value: keywords
-            modDate: 
-                type: "date-only"
-                displayName: 
-                    value: modDate
-            pageCount: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: pageCount
-            producer: 
-                type: string
-                displayName: 
-                    value: producer
-            subject: 
-                type: string
-                displayName: 
-                    value: subject
-            title: 
-                type: string
-                displayName: 
-                    value: title
-            linearized: 
-                type: boolean
-                displayName: 
-                    value: linearized
-            encrypted: 
-                type: boolean
-                displayName: 
-                    value: encrypted
-            encryption: 
-                type: string
-                displayName: 
-                    value: encryption
-            bytes: 
-                format: int64
-                type: integer
-                displayName: 
-                    value: bytes
-            content: 
-                type: LinkModel
-                displayName: 
-                    value: content
-            pages: 
-                type: LinkModel
-                displayName: 
-                    value: pages
-            annotations: 
-                type: LinkModel
-                displayName: 
-                    value: annotations
-            fields: 
-                type: LinkModel
-                displayName: 
-                    value: fields
-            signatureFields: 
-                type: LinkModel
-                displayName: 
-                    value: signatureFields
-            allPermissions: 
-                type: LinkModel
-                displayName: 
-                    value: allPermissions
-            passwordPermissions: 
-                type: LinkModel
-                displayName: 
-                    value: passwordPermissions
-        displayName: 
-            value: DocumentModel
-    FileModel: 
-        type: object
-        properties: 
-            path: 
-                type: string
-                displayName: 
-                    value: path
-            link: 
-                type: LinkModel
-                displayName: 
-                    value: link
-        displayName: 
-            value: FileModel
-    FieldsModel: 
-        type: object
-        properties: 
-            fields: 
-                type: array
-                items: 
-                    type: FieldModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: fields
-            link: 
-                type: LinkModel
-                displayName: 
-                    value: link
-            content: 
-                type: LinkModel
-                displayName: 
-                    value: content
-        displayName: 
-            value: FieldsModel
-    DigitalIDModel: 
-        type: object
-        properties: 
-            keystorePassword: 
-                type: string
-                displayName: 
-                    value: keystorePassword
-            keyAlias: 
-                type: string
-                displayName: 
-                    value: keyAlias
-            keyPassword: 
-                type: string
-                displayName: 
-                    value: keyPassword
-            signReason: 
-                type: string
-                displayName: 
-                    value: signReason
-            signLocation: 
-                type: string
-                displayName: 
-                    value: signLocation
-            signContactInformation: 
-                type: string
-                displayName: 
-                    value: signContactInformation
-            certifyingSignature: 
-                type: boolean
-                displayName: 
-                    value: certifyingSignature
-            certifyingPermissions: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: certifyingPermissions
-            format: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: format
-        displayName: 
-            value: DigitalIDModel
-    PagesModel: 
-        type: object
-        properties: 
-            pageCount: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: pageCount
-            pages: 
-                type: array
-                items: 
-                    type: PageModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: pages
-            link: 
-                type: LinkModel
-                displayName: 
-                    value: link
-            content: 
-                type: LinkModel
-                displayName: 
-                    value: content
-            text: 
-                type: LinkModel
-                displayName: 
-                    value: text
-        displayName: 
-            value: PagesModel
-    PageModel: 
-        type: object
-        properties: 
-            width: 
-                format: double
-                type: number
-                displayName: 
-                    value: width
-            height: 
-                format: double
-                type: number
-                displayName: 
-                    value: height
-            index: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: index
-            annotationCount: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: annotationCount
-            link: 
-                type: LinkModel
-                displayName: 
-                    value: link
-        displayName: 
-            value: PageModel
-    FieldModel: 
-        type: object
-        properties: 
-            name: 
-                type: string
-                displayName: 
-                    value: name
-            type: 
-                type: string
-                displayName: 
-                    value: type
-            userName: 
-                type: string
-                displayName: 
-                    value: userName
-            widgetCount: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: widgetCount
-            widget: 
-                type: array
-                items: 
-                    type: WidgetModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: widget
-        displayName: 
-            value: FieldModel
-    PageActionModel: 
-        type: object
-        displayName: 
-            value: PageActionModel
-    SignatureFieldModel: 
-        type: FieldModel
-        properties: 
-            signName: 
-                type: string
-                displayName: 
-                    value: signName
-            signLocation: 
-                type: string
-                displayName: 
-                    value: signLocation
-            signReason: 
-                type: string
-                displayName: 
-                    value: signReason
-            signContactInformation: 
-                type: string
-                displayName: 
-                    value: signContactInformation
-            signDateTime: 
-                type: "date-only"
-                displayName: 
-                    value: signDateTime
-            signed: 
-                type: boolean
-                displayName: 
-                    value: signed
-            certifying: 
-                type: boolean
-                displayName: 
-                    value: certifying
-            fieldName: 
-                type: string
-                displayName: 
-                    value: fieldName
-        displayName: 
-            value: SignatureFieldModel
-    JobStateModel: 
-        type: object
-        properties: 
-            jobStateXML: 
-                type: string
-                displayName: 
-                    value: jobStateXML
-        displayName: 
-            value: JobStateModel
-    OptimizeProfileModel: 
-        type: object
-        properties: 
-            profileName: 
-                type: string
-                displayName: 
-                    value: profileName
-            clearSignature: 
-                type: boolean
-                displayName: 
-                    value: clearSignature
-            discardAltImages: 
-                type: boolean
-                displayName: 
-                    value: discardAltImages
-            discardAnnotations: 
-                type: boolean
-                displayName: 
-                    value: discardAnnotations
-            discardBookmarks: 
-                type: boolean
-                displayName: 
-                    value: discardBookmarks
-            discardDocumentInfo: 
-                type: boolean
-                displayName: 
-                    value: discardDocumentInfo
-            discardFileAttachments: 
-                type: boolean
-                displayName: 
-                    value: discardFileAttachments
-            discardFormFields: 
-                type: boolean
-                displayName: 
-                    value: discardFormFields
-            discardJSActions: 
-                type: boolean
-                displayName: 
-                    value: discardJSActions
-            discardLinks: 
-                type: boolean
-                displayName: 
-                    value: discardLinks
-            discardPageThumbnails: 
-                type: boolean
-                displayName: 
-                    value: discardPageThumbnails
-            discardUnusedResources: 
-                type: boolean
-                displayName: 
-                    value: discardUnusedResources
-            discardXMPMetadata: 
-                type: boolean
-                displayName: 
-                    value: discardXMPMetadata
-            flateUncompressedStreams: 
-                type: boolean
-                displayName: 
-                    value: flateUncompressedStreams
-            flattenAnnotations: 
-                type: boolean
-                displayName: 
-                    value: flattenAnnotations
-            flattenFormFields: 
-                type: boolean
-                displayName: 
-                    value: flattenFormFields
-            linearize: 
-                type: boolean
-                displayName: 
-                    value: linearize
-            mergeDuplicateFonts: 
-                type: boolean
-                displayName: 
-                    value: mergeDuplicateFonts
-            mergeDuplicateImages: 
-                type: boolean
-                displayName: 
-                    value: mergeDuplicateImages
-            compressObjectsIntoStreams: 
-                type: boolean
-                displayName: 
-                    value: compressObjectsIntoStreams
-            colorImageHandler: 
-                type: ImageHandlerModel
-                displayName: 
-                    value: colorImageHandler
-            grayImageHandler: 
-                type: ImageHandlerModel
-                displayName: 
-                    value: grayImageHandler
-            bwImageHandler: 
-                type: ImageHandlerModel
-                displayName: 
-                    value: bwImageHandler
-        displayName: 
-            value: OptimizeProfileModel
-    void: 
-        type: object
-        displayName: 
-            value: void
-    ChoiceModel: 
-        type: object
-        properties: 
-            position: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: position
-            save: 
-                type: string
-                displayName: 
-                    value: save
-            text: 
-                type: string
-                displayName: 
-                    value: text
-        displayName: 
-            value: ChoiceModel
-    AnnotationsModel: 
-        type: object
-        properties: 
-            annotations: 
-                type: array
-                items: 
-                    type: AnnotationModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: annotations
-            link: 
-                type: LinkModel
-                displayName: 
-                    value: link
-            content: 
-                type: LinkModel
-                displayName: 
-                    value: content
-        displayName: 
-            value: AnnotationsModel
-    Response: 
-        type: object
-        displayName: 
-            value: Response
-    OptimizeProfilesModel: 
-        type: object
-        properties: 
-            optimizeProfiles: 
-                type: array
-                items: 
-                    type: OptimizeProfileModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: optimizeProfiles
-        displayName: 
-            value: OptimizeProfilesModel
-    ChoiceListModel: 
-        type: object
-        properties: 
-            choiceList: 
-                type: array
-                items: 
-                    type: ChoiceModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: choiceList
-        displayName: 
-            value: ChoiceListModel
-    SignatureFieldsModel: 
-        type: object
-        properties: 
-            signatureFields: 
-                type: array
-                items: 
-                    type: SignatureFieldModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: signatureFields
-        displayName: 
-            value: SignatureFieldsModel
-    PreflightResultRecordModel: 
-        type: object
-        properties: 
-            rectangle: 
-                type: RectangleModel
-                displayName: 
-                    value: rectangle
-            detail: 
-                type: string
-                displayName: 
-                    value: detail
-            header: 
-                type: string
-                displayName: 
-                    value: header
-            pageNumber: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: pageNumber
-        displayName: 
-            value: PreflightResultRecordModel
-    DocumentOverviewModel: 
-        type: object
-        properties: 
-            author: 
-                type: string
-                displayName: 
-                    value: author
-            creationDate: 
-                type: "date-only"
-                displayName: 
-                    value: creationDate
-            creator: 
-                type: string
-                displayName: 
-                    value: creator
-            modDate: 
-                type: "date-only"
-                displayName: 
-                    value: modDate
-            pageCount: 
-                format: int32
-                type: integer
-                displayName: 
-                    value: pageCount
-            producer: 
-                type: string
-                displayName: 
-                    value: producer
-            subject: 
-                type: string
-                displayName: 
-                    value: subject
-            title: 
-                type: string
-                displayName: 
-                    value: title
-        displayName: 
-            value: DocumentOverviewModel
-    AnnotationModel: 
-        type: object
-        properties: 
-            contents: 
-                type: string
-                displayName: 
-                    value: contents
-            creator: 
-                type: string
-                displayName: 
-                    value: creator
-            modifiedDate: 
-                type: "date-only"
-                displayName: 
-                    value: modifiedDate
-            subject: 
-                type: string
-                displayName: 
-                    value: subject
-            rectangle: 
-                type: RectangleModel
-                displayName: 
-                    value: rectangle
-        displayName: 
-            value: AnnotationModel
-    PreflightInformationModel: 
-        type: object
-        properties: 
-            profile: 
-                type: string
-                displayName: 
-                    value: profile
-            version: 
-                type: string
-                displayName: 
-                    value: version
-            date: 
-                type: "date-only"
-                displayName: 
-                    value: date
-            duration: 
-                format: int64
-                type: integer
-                displayName: 
-                    value: duration
-        displayName: 
-            value: PreflightInformationModel
-    PDFPermissionsModel: 
-        type: object
-        properties: 
-            passwordPermissions: 
-                type: PermissionsModel
-                displayName: 
-                    value: passwordPermissions
-            docMDPPermissions: 
-                type: PermissionsModel
-                displayName: 
-                    value: docMDPPermissions
-            usageRightsPermissions: 
-                type: PermissionsModel
-                displayName: 
-                    value: usageRightsPermissions
-            signaturePermissions: 
-                type: PermissionsModel
-                displayName: 
-                    value: signaturePermissions
-        displayName: 
-            value: PDFPermissionsModel
-    PreflightResultsModel: 
-        type: object
-        properties: 
-            resultRecords: 
-                type: array
-                items: 
-                    type: PreflightResultRecordModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: resultRecords
-            preflightInfo: 
-                type: PreflightInformationModel
-                displayName: 
-                    value: preflightInfo
-            documentInfo: 
-                type: DocumentOverviewModel
-                displayName: 
-                    value: documentInfo
-        displayName: 
-            value: PreflightResultsModel
-    JobStatesModel: 
-        type: object
-        properties: 
-            jobStates: 
-                type: array
-                items: 
-                    type: JobStateModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: jobStates
-        displayName: 
-            value: JobStatesModel
-    PermissionsModel: 
-        type: object
-        properties: 
-            assembleDocumentAllowed: 
-                type: boolean
-                displayName: 
-                    value: assembleDocumentAllowed
-            changeDocumentAllowed: 
-                type: boolean
-                displayName: 
-                    value: changeDocumentAllowed
-            extractTextAllowed: 
-                type: boolean
-                displayName: 
-                    value: extractTextAllowed
-            extractTextForAccessibilityAllowed: 
-                type: boolean
-                displayName: 
-                    value: extractTextForAccessibilityAllowed
-            fillFormFieldsAllowed: 
-                type: boolean
-                displayName: 
-                    value: fillFormFieldsAllowed
-            modifyAnnotationsAllowed: 
-                type: boolean
-                displayName: 
-                    value: modifyAnnotationsAllowed
-            printAllowed: 
-                type: boolean
-                displayName: 
-                    value: printAllowed
-            printHighResolutionAllowed: 
-                type: boolean
-                displayName: 
-                    value: printHighResolutionAllowed
-        displayName: 
-            value: PermissionsModel
-    FolderModel: 
-        type: FileModel
-        properties: 
-            children: 
-                type: array
-                items: 
-                    type: FileModel
-                    displayName: 
-                        value: items
-                displayName: 
-                    value: children
-        displayName: 
-            value: FolderModel
-/pdfmarkup/v1/documents/{filePath:.*}.pdf: 
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: DocumentModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: DocumentModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    /pages/{pageIndex}/prepareForPrint: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: Response
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            body: 
-                application/vnd.adobe.xfdf: 
-                    type: file
-                    displayName: 
-                        value: application/vnd.adobe.xfdf
-            displayName: 
-                value: post
-        displayName: 
-            value: "/pages/{pageIndex}/prepareForPrint"
-    /annotations/content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/vnd.adobe.xfdf: 
-                            type: Response
-                            displayName: 
-                                value: application/vnd.adobe.xfdf
-            displayName: 
-                value: get
-        displayName: 
-            value: /annotations/content
-    /annotations/delete: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: AnnotationsModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: AnnotationsModel
-                            displayName: 
-                                value: application/xml
-            body: 
-                application/vnd.adobe.xfdf: 
-                    type: file
-                    displayName: 
-                        value: application/vnd.adobe.xfdf
-            displayName: 
-                value: post
-        displayName: 
-            value: /annotations/delete
-    /prepareForPrint: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: Response
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            body: 
-                application/vnd.adobe.xfdf: 
-                    type: file
-                    displayName: 
-                        value: application/vnd.adobe.xfdf
-            displayName: 
-                value: post
-        displayName: 
-            value: /prepareForPrint
-    /pages/{pageIndex}/content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        image/svg+xml: 
-                            type: Response
-                            displayName: 
-                                value: image/svg+xml
-            queryParameters: 
-                print: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: print
-            displayName: 
-                value: get
-        displayName: 
-            value: "/pages/{pageIndex}/content"
-    /fields/content: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: void
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: void
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: post
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: get
-        displayName: 
-            value: /fields/content
-    /pages/order: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: Response
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: post
-        displayName: 
-            value: /pages/order
-    /annotations: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: AnnotationsModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: AnnotationsModel
-                            displayName: 
-                                value: application/xml
-            body: 
-                application/vnd.adobe.xfdf: 
-                    type: file
-                    displayName: 
-                        value: application/vnd.adobe.xfdf
-            displayName: 
-                value: post
-        displayName: 
-            value: /annotations
-    /content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/pdf: 
-                            type: Response
-                            displayName: 
-                                value: application/pdf
-                        image/svg+xml: 
-                            type: Response
-                            displayName: 
-                                value: image/svg+xml
-            queryParameters: 
-                attachment: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: attachment
-            headers: 
-                accept: 
-                    type: 
-                        type: string
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: accept
-            displayName: 
-                value: get
-        displayName: 
-            value: /content
-    displayName: 
-        value: "/pdfmarkup/v1/documents/{filePath:.*}.pdf"
-/qoppapdf/v1/documents/{filePath:.*}.pdf: 
-    post: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: Response
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: Response
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: post
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: DocumentModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: DocumentModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    delete: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: Response
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: Response
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: delete
-    put: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: Response
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: Response
-                        displayName: 
-                            value: application/xml
-        queryParameters: 
-            dpi: 
-                default: 72
-                required: false
-                type: 
-                    format: int32
-                    type: integer
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: dpi
-        headers: 
-            Content-Type: 
-                default: application/pdf
-                required: false
-                type: 
-                    type: string
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: "Content-Type"
-        body: 
-            application/pdf: 
-                type: file
-                displayName: 
-                    value: application/pdf
-            image/gif: 
-                type: file
-                displayName: 
-                    value: image/gif
-            image/jpeg: 
-                type: file
-                displayName: 
-                    value: image/jpeg
-            image/png: 
-                type: file
-                displayName: 
-                    value: image/png
-            image/tiff: 
-                type: file
-                displayName: 
-                    value: image/tiff
-            text/plain: 
-                type: file
-                displayName: 
-                    value: text/plain
-            application/msword: 
-                type: file
-                displayName: 
-                    value: application/msword
-            application/vnd.openxmlformats-officedocument.wordprocessingml.document: 
-                type: file
-                displayName: 
-                    value: "application/vnd.openxmlformats-officedocument.wordprocessingml.document"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet: 
-                type: file
-                displayName: 
-                    value: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-        displayName: 
-            value: put
-    /content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/pdf: 
-                            type: Response
-                            displayName: 
-                                value: application/pdf
-                        text/html: 
-                            type: Response
-                            displayName: 
-                                value: text/html
-                        image/tiff: 
-                            type: Response
-                            displayName: 
-                                value: image/tiff
-                        image/svg+xml: 
-                            type: Response
-                            displayName: 
-                                value: image/svg+xml
-            queryParameters: 
-                dpi: 
-                    default: 72
-                    required: false
-                    type: 
-                        format: int32
-                        type: integer
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: dpi
-                attachment: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: attachment
-            headers: 
-                accept: 
-                    default: application/pdf
-                    required: false
-                    type: 
-                        type: string
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: accept
-            displayName: 
-                value: get
-        displayName: 
-            value: /content
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/annotations: 
-    post: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: AnnotationsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: AnnotationsModel
-                        displayName: 
-                            value: application/xml
-        headers: 
-            content-type: 
-                default: application/vnd.adobe.xfdf
-                required: false
-                type: 
-                    type: string
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: "content-type"
-        body: 
-            application/vnd.fdf: 
-                type: file
-                displayName: 
-                    value: application/vnd.fdf
-            application/vnd.adobe.xfdf: 
-                type: file
-                displayName: 
-                    value: application/vnd.adobe.xfdf
-        displayName: 
-            value: post
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: AnnotationsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: AnnotationsModel
-                        displayName: 
-                            value: application/xml
-        queryParameters: 
-            pageIndex: 
-                type: 
-                    format: int32
-                    type: integer
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: pageIndex
-        displayName: 
-            value: get
-    /annotations: 
-        delete: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: AnnotationsModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: AnnotationsModel
-                            displayName: 
-                                value: application/xml
-            queryParameters: 
-                pageIndex: 
-                    type: 
-                        format: int32
-                        type: integer
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: pageIndex
-            displayName: 
-                value: delete
-        displayName: 
-            value: /annotations
-    /content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/vnd.fdf: 
-                            type: Response
-                            displayName: 
-                                value: application/vnd.fdf
-                        application/vnd.adobe.xfdf: 
-                            type: Response
-                            displayName: 
-                                value: application/vnd.adobe.xfdf
-            queryParameters: 
-                attachment: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: attachment
-            headers: 
-                accept: 
-                    default: application/vnd.adobe.xfdf
-                    required: false
-                    type: 
-                        type: string
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: accept
-            displayName: 
-                value: get
-        displayName: 
-            value: /content
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/annotations"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/fields: 
-    post: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: FieldsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: FieldsModel
-                        displayName: 
-                            value: application/xml
-        headers: 
-            content-type: 
-                default: application/vnd.adobe.xfdf
-                required: false
-                type: 
-                    type: string
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: "content-type"
-        body: 
-            application/vnd.fdf: 
-                type: file
-                displayName: 
-                    value: application/vnd.fdf
-            application/vnd.adobe.xfdf: 
-                type: file
-                displayName: 
-                    value: application/vnd.adobe.xfdf
-        displayName: 
-            value: post
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: FieldsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: FieldsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    delete: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: FieldsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: FieldsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: delete
-    /content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/vnd.fdf: 
-                            type: Response
-                            displayName: 
-                                value: application/vnd.fdf
-                        application/vnd.adobe.xfdf: 
-                            type: Response
-                            displayName: 
-                                value: application/vnd.adobe.xfdf
-            queryParameters: 
-                exportEmptyFields: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: exportEmptyFields
-                attachment: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: attachment
-            headers: 
-                accept: 
-                    default: application/vnd.adobe.xfdf
-                    required: false
-                    type: 
-                        type: string
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: accept
-            displayName: 
-                value: get
-        displayName: 
-            value: /content
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/fields"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/fields/signature-fields: 
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: SignatureFieldsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: SignatureFieldsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    delete: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: SignatureFieldsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: SignatureFieldsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: delete
-    /{fieldName}/default-signature: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: post
-        displayName: 
-            value: "/{fieldName}/default-signature"
-    /{fieldName}/signature: 
-        post: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/xml
-            body: 
-                multipart/form-data: 
-                    type: object
-                    properties: 
-                        file: 
-                            type: file
-                            displayName: 
-                                value: file
-                        digitalID: 
-                            type: DigitalIDModel
-                            displayName: 
-                                value: digitalID
-                    displayName: 
-                        value: "multipart/form-data"
-            displayName: 
-                value: post
-        displayName: 
-            value: "/{fieldName}/signature"
-    /{fieldName}: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: get
-        delete: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: SignatureFieldModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: delete
-        put: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: Response
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: put
-        displayName: 
-            value: "/{fieldName}"
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/fields/signature-fields"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/pages: 
-    post: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PagesModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PagesModel
-                        displayName: 
-                            value: application/xml
-        body: 
-            multipart/form-data: 
-                type: object
-                properties: 
-                    pageAction: 
-                        type: PageActionModel
-                        displayName: 
-                            value: pageAction
-                    file: 
-                        type: file
-                        displayName: 
-                            value: file
-                displayName: 
-                    value: "multipart/form-data"
-        displayName: 
-            value: post
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PagesModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PagesModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    /{pageIndex}/content: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        image/gif: 
-                            type: Response
-                            displayName: 
-                                value: image/gif
-                        image/jpeg: 
-                            type: Response
-                            displayName: 
-                                value: image/jpeg
-                        image/png: 
-                            type: Response
-                            displayName: 
-                                value: image/png
-                        image/tiff: 
-                            type: Response
-                            displayName: 
-                                value: image/tiff
-                        image/svg+xml: 
-                            type: Response
-                            displayName: 
-                                value: image/svg+xml
-                        application/pdf: 
-                            type: Response
-                            displayName: 
-                                value: application/pdf
-                        text/html: 
-                            type: Response
-                            displayName: 
-                                value: text/html
-            queryParameters: 
-                dpi: 
-                    default: 72
-                    required: false
-                    type: 
-                        format: int32
-                        type: integer
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: dpi
-                quality: 
-                    default: .8
-                    required: false
-                    type: 
-                        format: float
-                        type: number
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: quality
-                attachment: 
-                    default: false
-                    required: false
-                    type: 
-                        type: boolean
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: attachment
-            headers: 
-                accept: 
-                    type: 
-                        type: string
-                        displayName: 
-                            value: type
-                    displayName: 
-                        value: accept
-            displayName: 
-                value: get
-        displayName: 
-            value: "/{pageIndex}/content"
-    /{pageIndex}/text: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        text/plain: 
-                            type: Response
-                            displayName: 
-                                value: text/plain
-            displayName: 
-                value: get
-        displayName: 
-            value: "/{pageIndex}/text"
-    /text: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        text/plain: 
-                            type: Response
-                            displayName: 
-                                value: text/plain
-            displayName: 
-                value: get
-        displayName: 
-            value: /text
-    /{pageIndex}: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: PageModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: PageModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: get
-        delete: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: PagesModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: PagesModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: delete
-        displayName: 
-            value: "/{pageIndex}"
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/pages"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/permissions: 
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PDFPermissionsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PDFPermissionsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    /usage-rights: 
-        delete: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: PDFPermissionsModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: PDFPermissionsModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: delete
-        displayName: 
-            value: "/usage-rights"
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/permissions"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/permissions/password-permissions: 
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PermissionsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PermissionsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    delete: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PermissionsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PermissionsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: delete
-    put: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PermissionsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PermissionsModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: put
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/permissions/password-permissions"
-/qoppapdf/v1/documents/{filePath:.*}.pdf/preflight-results: 
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: PreflightResultsModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: PreflightResultsModel
-                        displayName: 
-                            value: application/xml
-        queryParameters: 
-            profile: 
-                default: 
-                required: false
-                type: 
-                    type: string
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: profile
-        displayName: 
-            value: get
-    displayName: 
-        value: "/qoppapdf/v1/documents/{filePath:.*}.pdf/preflight-results"
-/qoppapdf/v1/documents/{folderPath:.*}: 
-    post: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: Response
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: Response
-                        displayName: 
-                            value: application/xml
-        queryParameters: 
-            namingMode: 
-                default: 2
-                required: false
-                type: 
-                    format: int32
-                    type: integer
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: namingMode
-            dpi: 
-                default: 72
-                required: false
-                type: 
-                    format: int32
-                    type: integer
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: dpi
-        body: 
-            multipart/form-data: 
-                type: object
-                properties: 
-                    file: 
-                        type: file
-                        displayName: 
-                            value: file
-                displayName: 
-                    value: "multipart/form-data"
-        displayName: 
-            value: post
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: FolderModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: FolderModel
-                        displayName: 
-                            value: application/xml
-        queryParameters: 
-            details: 
-                default: false
-                required: false
-                type: 
-                    type: boolean
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: details
-        displayName: 
-            value: get
-    delete: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: Response
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: Response
-                        displayName: 
-                            value: application/xml
-        queryParameters: 
-            recursive: 
-                default: false
-                required: false
-                type: 
-                    type: boolean
-                    displayName: 
-                        value: type
-                displayName: 
-                    value: recursive
-        displayName: 
-            value: delete
-    put: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: Response
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: Response
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: put
-    displayName: 
-        value: "/qoppapdf/v1/documents/{folderPath:.*}"
-/qoppapdf/v1/optimize-profiles: 
-    get: 
-        responses: 
-            200: 
-                body: 
-                    application/json: 
-                        type: OptimizeProfilesModel
-                        displayName: 
-                            value: application/json
-                    application/xml: 
-                        type: OptimizeProfilesModel
-                        displayName: 
-                            value: application/xml
-        displayName: 
-            value: get
-    /{profileName}: 
-        get: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: OptimizeProfileModel
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: OptimizeProfileModel
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: get
-        delete: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: Response
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: delete
-        put: 
-            responses: 
-                200: 
-                    body: 
-                        application/json: 
-                            type: Response
-                            displayName: 
-                                value: application/json
-                        application/xml: 
-                            type: Response
-                            displayName: 
-                                value: application/xml
-            displayName: 
-                value: put
-        displayName: 
-            value: "/{profileName}"
-    displayName: 
-        value: "/qoppapdf/v1/optimize-profiles"
+title: "QoppaPDF API"
+version: "1.0"
+protocols:
+- "HTTP"
+baseUri: "http://www.baseuri.com"
+mediaType:
+- "*/*"
+types:
+  WidgetModel:
+    type: "object"
+    properties:
+      rectangle:
+        type: "RectangleModel"
+      pageIndex:
+        type: "integer"
+        format: "int32"
+  ImageHandlerModel:
+    type: "object"
+    properties:
+      compression:
+        type: "integer"
+        format: "int32"
+      colorSpace:
+        type: "integer"
+        format: "int32"
+      dpi:
+        type: "integer"
+        format: "int32"
+      jpegQuality:
+        type: "number"
+        format: "float"
+  RectangleModel:
+    type: "object"
+    properties:
+      x:
+        type: "number"
+        format: "double"
+      y:
+        type: "number"
+        format: "double"
+      width:
+        type: "number"
+        format: "double"
+      height:
+        type: "number"
+        format: "double"
+  StreamingOutput:
+    type: "object"
+  LinkModel:
+    type: "object"
+    properties:
+      REF_FILE:
+        type: "string"
+      REF_FOLDER:
+        type: "string"
+      REF_ANNOTATIONS:
+        type: "string"
+      REF_FIELDS:
+        type: "string"
+      REF_PAGES:
+        type: "string"
+      REF_PAGE:
+        type: "string"
+      REF_PASSWORD_PERMISSIONS:
+        type: "string"
+      REF_ALL_PERMISSIONS:
+        type: "string"
+      REF_SIGNATURE_FIELDS:
+        type: "string"
+      REF_CONTENT:
+        type: "string"
+      REF_TEXT:
+        type: "string"
+      rel:
+        type: "string"
+      href:
+        type: "string"
+  DocumentModel:
+    type: "FileModel"
+  FileModel:
+    type: "object"
+    properties:
+      path:
+        type: "string"
+      link:
+        type: "LinkModel"
+  FieldsModel:
+    type: "object"
+    properties:
+      fields:
+        type: "array"
+        items:
+          type: "FieldModel"
+      link:
+        type: "LinkModel"
+      content:
+        type: "LinkModel"
+  DigitalIDModel:
+    type: "object"
+    properties:
+      keystorePassword:
+        type: "string"
+      keyAlias:
+        type: "string"
+      keyPassword:
+        type: "string"
+      signReason:
+        type: "string"
+      signLocation:
+        type: "string"
+      signContactInformation:
+        type: "string"
+      certifyingSignature:
+        type: "boolean"
+      certifyingPermissions:
+        type: "integer"
+        format: "int32"
+      format:
+        type: "integer"
+        format: "int32"
+  PagesModel:
+    type: "object"
+    properties:
+      pageCount:
+        type: "integer"
+        format: "int32"
+      pages:
+        type: "array"
+        items:
+          type: "PageModel"
+      link:
+        type: "LinkModel"
+      content:
+        type: "LinkModel"
+      text:
+        type: "LinkModel"
+  PageModel:
+    type: "object"
+    properties:
+      width:
+        type: "number"
+        format: "double"
+      height:
+        type: "number"
+        format: "double"
+      index:
+        type: "integer"
+        format: "int32"
+      annotationCount:
+        type: "integer"
+        format: "int32"
+      link:
+        type: "LinkModel"
+  FieldModel:
+    type: "object"
+    properties:
+      name:
+        type: "string"
+      type:
+        type: "string"
+      userName:
+        type: "string"
+      widgetCount:
+        type: "integer"
+        format: "int32"
+      widget:
+        type: "array"
+        items:
+          type: "WidgetModel"
+  PageActionModel:
+    type: "object"
+  SignatureFieldModel:
+    type: "FieldModel"
+  JobStateModel:
+    type: "object"
+    properties:
+      jobStateXML:
+        type: "string"
+  OptimizeProfileModel:
+    type: "object"
+    properties:
+      profileName:
+        type: "string"
+      clearSignature:
+        type: "boolean"
+      discardAltImages:
+        type: "boolean"
+      discardAnnotations:
+        type: "boolean"
+      discardBookmarks:
+        type: "boolean"
+      discardDocumentInfo:
+        type: "boolean"
+      discardFileAttachments:
+        type: "boolean"
+      discardFormFields:
+        type: "boolean"
+      discardJSActions:
+        type: "boolean"
+      discardLinks:
+        type: "boolean"
+      discardPageThumbnails:
+        type: "boolean"
+      discardUnusedResources:
+        type: "boolean"
+      discardXMPMetadata:
+        type: "boolean"
+      flateUncompressedStreams:
+        type: "boolean"
+      flattenAnnotations:
+        type: "boolean"
+      flattenFormFields:
+        type: "boolean"
+      linearize:
+        type: "boolean"
+      mergeDuplicateFonts:
+        type: "boolean"
+      mergeDuplicateImages:
+        type: "boolean"
+      compressObjectsIntoStreams:
+        type: "boolean"
+      colorImageHandler:
+        type: "ImageHandlerModel"
+      grayImageHandler:
+        type: "ImageHandlerModel"
+      bwImageHandler:
+        type: "ImageHandlerModel"
+  void:
+    type: "object"
+  ChoiceModel:
+    type: "object"
+    properties:
+      position:
+        type: "integer"
+        format: "int32"
+      save:
+        type: "string"
+      text:
+        type: "string"
+  AnnotationsModel:
+    type: "object"
+    properties:
+      annotations:
+        type: "array"
+        items:
+          type: "AnnotationModel"
+      link:
+        type: "LinkModel"
+      content:
+        type: "LinkModel"
+  Response:
+    type: "object"
+  OptimizeProfilesModel:
+    type: "object"
+    properties:
+      optimizeProfiles:
+        type: "array"
+        items:
+          type: "OptimizeProfileModel"
+  ChoiceListModel:
+    type: "object"
+    properties:
+      choiceList:
+        type: "array"
+        items:
+          type: "ChoiceModel"
+  SignatureFieldsModel:
+    type: "object"
+    properties:
+      signatureFields:
+        type: "array"
+        items:
+          type: "SignatureFieldModel"
+  PreflightResultRecordModel:
+    type: "object"
+    properties:
+      rectangle:
+        type: "RectangleModel"
+      detail:
+        type: "string"
+      header:
+        type: "string"
+      pageNumber:
+        type: "integer"
+        format: "int32"
+  DocumentOverviewModel:
+    type: "object"
+    properties:
+      author:
+        type: "string"
+      creationDate:
+        type: "date-only"
+      creator:
+        type: "string"
+      modDate:
+        type: "date-only"
+      pageCount:
+        type: "integer"
+        format: "int32"
+      producer:
+        type: "string"
+      subject:
+        type: "string"
+      title:
+        type: "string"
+  AnnotationModel:
+    type: "object"
+    properties:
+      contents:
+        type: "string"
+      creator:
+        type: "string"
+      modifiedDate:
+        type: "date-only"
+      subject:
+        type: "string"
+      rectangle:
+        type: "RectangleModel"
+  PreflightInformationModel:
+    type: "object"
+    properties:
+      profile:
+        type: "string"
+      pasVersion:
+        type: "string"
+      date:
+        type: "date-only"
+      duration:
+        type: "integer"
+        format: "int64"
+  PDFPermissionsModel:
+    type: "object"
+    properties:
+      passwordPermissions:
+        type: "PermissionsModel"
+      docMDPPermissions:
+        type: "PermissionsModel"
+      usageRightsPermissions:
+        type: "PermissionsModel"
+      signaturePermissions:
+        type: "PermissionsModel"
+  PreflightResultsModel:
+    type: "object"
+    properties:
+      resultRecords:
+        type: "array"
+        items:
+          type: "PreflightResultRecordModel"
+      preflightInfo:
+        type: "PreflightInformationModel"
+      documentInfo:
+        type: "DocumentOverviewModel"
+  JobStatesModel:
+    type: "object"
+    properties:
+      jobStates:
+        type: "array"
+        items:
+          type: "JobStateModel"
+  PermissionsModel:
+    type: "object"
+    properties:
+      assembleDocumentAllowed:
+        type: "boolean"
+      changeDocumentAllowed:
+        type: "boolean"
+      extractTextAllowed:
+        type: "boolean"
+      extractTextForAccessibilityAllowed:
+        type: "boolean"
+      fillFormFieldsAllowed:
+        type: "boolean"
+      modifyAnnotationsAllowed:
+        type: "boolean"
+      printAllowed:
+        type: "boolean"
+      printHighResolutionAllowed:
+        type: "boolean"
+  FolderModel:
+    type: "FileModel"
+/pdfmarkup/v1/documents/{filePath}.pdf:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get document (pdfmarkup)"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "DocumentModel"
+          application/xml:
+            type: "DocumentModel"
+/pdfmarkup/v1/documents/{filePath}.pdf/pages/{pageIndex}/prepareForPrint:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    pageIndex:
+      type: "string"
+      required: false
+  post:
+    displayName: "Prepare page for print (pdfmarkup)"
+    body:
+      application/vnd.adobe.xfdf:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+/pdfmarkup/v1/documents/{filePath}.pdf/annotations/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get annotation content (pdfmarkup)"
+    responses:
+      200:
+        body:
+          application/vnd.adobe.xfdf:
+            type: "Response"
+/pdfmarkup/v1/documents/{filePath}.pdf/annotations/delete:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Delete annotations (pdfmarkup)"
+    body:
+      application/vnd.adobe.xfdf:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "AnnotationsModel"
+          application/xml:
+            type: "AnnotationsModel"
+/pdfmarkup/v1/documents/{filePath}.pdf/prepareForPrint:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Prepare document for print (pdfmarkup)"
+    body:
+      application/vnd.adobe.xfdf:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+/pdfmarkup/v1/documents/{filePath}.pdf/pages/{pageIndex}/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    pageIndex:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get page content (pdfmarkup)"
+    queryParameters:
+      print:
+        type: "boolean"
+        default: false
+        required: false
+    responses:
+      200:
+        body:
+          image/svg+xml:
+            type: "Response"
+/pdfmarkup/v1/documents/{filePath}.pdf/fields/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Post field content (pdfmarkup)"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "void"
+          application/xml:
+            type: "void"
+  get:
+    displayName: "Get field content (pdfmarkup)"
+    responses:
+      200:
+        body:
+          application/xml:
+            type: "Response"
+/pdfmarkup/v1/documents/{filePath}.pdf/pages/order:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Post page order (pdfmarkup)"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+/pdfmarkup/v1/documents/{filePath}.pdf/annotations:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Post annotations (pdfmarkup)"
+    body:
+      application/vnd.adobe.xfdf:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "AnnotationsModel"
+          application/xml:
+            type: "AnnotationsModel"
+/pdfmarkup/v1/documents/{filePath}.pdf/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get document content (pdfmarkup)"
+    queryParameters:
+      attachment:
+        type: "boolean"
+        default: false
+        required: false
+    headers:
+      accept:
+        type: "string"
+    responses:
+      200:
+        body:
+          application/pdf:
+            type: "Response"
+          image/svg+xml:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Perform a document action"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+  get:
+    displayName: "Get document"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "DocumentModel"
+          application/xml:
+            type: "DocumentModel"
+  delete:
+    displayName: "Delete document"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+  put:
+    displayName: "Upload document"
+    queryParameters:
+      dpi:
+        type: "integer"
+        format: "int32"
+        default: 72
+        required: false
+    headers:
+      Content-Type:
+        type: "string"
+        default: "application/pdf"
+        required: false
+    body:
+      application/pdf:
+        type: "file"
+      image/gif:
+        type: "file"
+      image/jpeg:
+        type: "file"
+      image/png:
+        type: "file"
+      image/tiff:
+        type: "file"
+      text/plain:
+        type: "file"
+      application/msword:
+        type: "file"
+      application/vnd.openxmlformats-officedocument.wordprocessingml.document:
+        type: "file"
+      application/vnd.openxmlformats-officedocument.spreadsheetml.sheet:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get document content"
+    queryParameters:
+      dpi:
+        type: "integer"
+        format: "int32"
+        default: 72
+        required: false
+      attachment:
+        type: "boolean"
+        default: false
+        required: false
+    headers:
+      accept:
+        type: "string"
+        default: "application/pdf"
+        required: false
+    responses:
+      200:
+        body:
+          application/pdf:
+            type: "Response"
+          text/html:
+            type: "Response"
+          image/tiff:
+            type: "Response"
+          image/svg+xml:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/annotations:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Post annotations"
+    headers:
+      content-type:
+        type: "string"
+        default: "application/vnd.adobe.xfdf"
+        required: false
+    body:
+      application/vnd.fdf:
+        type: "file"
+      application/vnd.adobe.xfdf:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "AnnotationsModel"
+          application/xml:
+            type: "AnnotationsModel"
+  get:
+    displayName: "Get annotations"
+    queryParameters:
+      pageIndex:
+        type: "integer"
+        format: "int32"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "AnnotationsModel"
+          application/xml:
+            type: "AnnotationsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/annotations/annotations:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  delete:
+    displayName: "Delete annotations"
+    queryParameters:
+      pageIndex:
+        type: "integer"
+        format: "int32"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "AnnotationsModel"
+          application/xml:
+            type: "AnnotationsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/annotations/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get annotation content"
+    queryParameters:
+      attachment:
+        type: "boolean"
+        default: false
+        required: false
+    headers:
+      accept:
+        type: "string"
+        default: "application/vnd.adobe.xfdf"
+        required: false
+    responses:
+      200:
+        body:
+          application/vnd.fdf:
+            type: "Response"
+          application/vnd.adobe.xfdf:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/fields:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Post fields"
+    headers:
+      content-type:
+        type: "string"
+        default: "application/vnd.adobe.xfdf"
+        required: false
+    body:
+      application/vnd.fdf:
+        type: "file"
+      application/vnd.adobe.xfdf:
+        type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "FieldsModel"
+          application/xml:
+            type: "FieldsModel"
+  get:
+    displayName: "Get fields"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "FieldsModel"
+          application/xml:
+            type: "FieldsModel"
+  delete:
+    displayName: "Delete fields"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "FieldsModel"
+          application/xml:
+            type: "FieldsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/fields/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get field content"
+    queryParameters:
+      exportEmptyFields:
+        type: "boolean"
+        default: false
+        required: false
+      attachment:
+        type: "boolean"
+        default: false
+        required: false
+    headers:
+      accept:
+        type: "string"
+        default: "application/vnd.adobe.xfdf"
+        required: false
+    responses:
+      200:
+        body:
+          application/vnd.fdf:
+            type: "Response"
+          application/vnd.adobe.xfdf:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/fields/signature-fields:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get signature fields"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "SignatureFieldsModel"
+          application/xml:
+            type: "SignatureFieldsModel"
+  delete:
+    displayName: "Clear signature fields"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "SignatureFieldsModel"
+          application/xml:
+            type: "SignatureFieldsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/fields/signature-fields/{fieldName}/default-signature:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    fieldName:
+      type: "string"
+      required: false
+  post:
+    displayName: "Sign with default signature"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "SignatureFieldModel"
+          application/xml:
+            type: "SignatureFieldModel"
+/qoppapdf/v1/documents/{filePath}.pdf/fields/signature-fields/{fieldName}/signature:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    fieldName:
+      type: "string"
+      required: false
+  post:
+    displayName: "Sign"
+    body:
+      multipart/form-data:
+        type: "object"
+        properties:
+          file:
+            type: "file"
+          digitalID:
+            type: "DigitalIDModel"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "SignatureFieldModel"
+          application/xml:
+            type: "SignatureFieldModel"
+/qoppapdf/v1/documents/{filePath}.pdf/fields/signature-fields/{fieldName}:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    fieldName:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get signature field"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "SignatureFieldModel"
+          application/xml:
+            type: "SignatureFieldModel"
+  delete:
+    displayName: "Clear signature field"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "SignatureFieldModel"
+          application/xml:
+            type: "SignatureFieldModel"
+  put:
+    displayName: "Create signature field"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/pages:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Perform a page action"
+    body:
+      multipart/form-data:
+        type: "object"
+        properties:
+          pageAction:
+            type: "PageActionModel"
+          file:
+            type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PagesModel"
+          application/xml:
+            type: "PagesModel"
+  get:
+    displayName: "Get pages"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PagesModel"
+          application/xml:
+            type: "PagesModel"
+/qoppapdf/v1/documents/{filePath}.pdf/pages/{pageIndex}/content:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    pageIndex:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get page content"
+    queryParameters:
+      dpi:
+        type: "integer"
+        format: "int32"
+        default: 72
+        required: false
+      quality:
+        type: "number"
+        format: "float"
+        default: 0.8
+        required: false
+      attachment:
+        type: "boolean"
+        default: false
+        required: false
+    headers:
+      accept:
+        type: "string"
+    responses:
+      200:
+        body:
+          image/gif:
+            type: "Response"
+          image/jpeg:
+            type: "Response"
+          image/png:
+            type: "Response"
+          image/tiff:
+            type: "Response"
+          image/svg+xml:
+            type: "Response"
+          application/pdf:
+            type: "Response"
+          text/html:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/pages/{pageIndex}/text:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    pageIndex:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get page text"
+    responses:
+      200:
+        body:
+          text/plain:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/pages/text:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get text of all pages"
+    responses:
+      200:
+        body:
+          text/plain:
+            type: "Response"
+/qoppapdf/v1/documents/{filePath}.pdf/pages/{pageIndex}:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+    pageIndex:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get page"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PageModel"
+          application/xml:
+            type: "PageModel"
+  delete:
+    displayName: "Delete page"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PagesModel"
+          application/xml:
+            type: "PagesModel"
+/qoppapdf/v1/documents/{filePath}.pdf/permissions:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get document permissions"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PDFPermissionsModel"
+          application/xml:
+            type: "PDFPermissionsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/permissions/usage-rights:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  delete:
+    displayName: "Clear usage rights"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PDFPermissionsModel"
+          application/xml:
+            type: "PDFPermissionsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/permissions/password-permissions:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get password permissions"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PermissionsModel"
+          application/xml:
+            type: "PermissionsModel"
+  delete:
+    displayName: "Clear password permissions"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PermissionsModel"
+          application/xml:
+            type: "PermissionsModel"
+  put:
+    displayName: "Set password permissions"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PermissionsModel"
+          application/xml:
+            type: "PermissionsModel"
+/qoppapdf/v1/documents/{filePath}.pdf/preflight-results:
+  uriParameters:
+    filePath:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get preflight results"
+    queryParameters:
+      profile:
+        type: "string"
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: "PreflightResultsModel"
+          application/xml:
+            type: "PreflightResultsModel"
+/qoppapdf/v1/documents/{folderPath}:
+  uriParameters:
+    folderPath:
+      type: "string"
+      required: false
+  post:
+    displayName: "Upload document to folder"
+    queryParameters:
+      namingMode:
+        type: "integer"
+        format: "int32"
+        default: 2
+        required: false
+      dpi:
+        type: "integer"
+        format: "int32"
+        default: 72
+        required: false
+    body:
+      multipart/form-data:
+        type: "object"
+        properties:
+          file:
+            type: "file"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+  get:
+    displayName: "Get folder"
+    queryParameters:
+      details:
+        type: "boolean"
+        default: false
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: "FolderModel"
+          application/xml:
+            type: "FolderModel"
+  delete:
+    displayName: "Delete folder"
+    queryParameters:
+      recursive:
+        type: "boolean"
+        default: false
+        required: false
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+  put:
+    displayName: "Create folder"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+/qoppapdf/v1/optimize-profiles:
+  get:
+    displayName: "Get optimize profiles"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "OptimizeProfilesModel"
+          application/xml:
+            type: "OptimizeProfilesModel"
+/qoppapdf/v1/optimize-profiles/{profileName}:
+  uriParameters:
+    profileName:
+      type: "string"
+      required: false
+  get:
+    displayName: "Get optimize profile"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "OptimizeProfileModel"
+          application/xml:
+            type: "OptimizeProfileModel"
+  delete:
+    displayName: "Delete optimize profile"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
+  put:
+    displayName: "Create optimize profile"
+    responses:
+      200:
+        body:
+          application/json:
+            type: "Response"
+          application/xml:
+            type: "Response"
